@@ -7,6 +7,13 @@ describe('VoteComponent', () => {
     component = new VoteComponent();
   });
 
-  it('', () => {
+  it('should raise votechanged event when upvoted', () => {
+    let totalVotes = null;
+    component.voteChanged.subscribe( tv => totalVotes = tv);//EventEmitter is an Observable
+
+    component.upVote();
+
+    // expect(totalVotes).not.toBeNull();
+    expect(totalVotes).toBe(1);
   });
 });
